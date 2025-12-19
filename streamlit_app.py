@@ -28,14 +28,14 @@ from utils.loaders import load_main_base
 from utils.filters import aplicar_filtros
 from utils.format import normalize_dataframe
 
-# Importação das páginas existentes (Crowley removido)
+# Importação das páginas existentes (Crowley removido, top10 atualizado para top_anunciantes)
 from pages import (
     inicio, 
     visao_geral, 
     clientes_faturamento, 
     perdas_ganhos, 
     cruzamentos_intersecoes, 
-    top10, 
+    top_anunciantes, 
     relatorio_abc, 
     eficiencia
 )
@@ -51,7 +51,7 @@ if os.path.exists(icon_path):
         print(f"Erro ao carregar favicon: {e}")
 
 st.set_page_config(
-    page_title="Dashboard Vendas Ribeirão Preto",
+    page_title="Dashboard Vendas",
     page_icon=favicon, 
     layout="wide",
     initial_sidebar_state="expanded"
@@ -111,7 +111,7 @@ if not st.session_state.authenticated:
 
         if submitted:
             try:
-                senha_correta = st.secrets["senha_app_ribeirao_preto"]
+                senha_correta = st.secrets["senha_app"]
             except Exception:
                 st.error("Erro Crítico: Senha não configurada no secrets.toml.")
                 st.stop()
@@ -155,14 +155,14 @@ if os.path.exists(logo_path):
 query_params = st.query_params
 nav_id = query_params.get("nav", ["0"])[0]
 
-# Lista de chaves das páginas (Crowley Removido)
+# Lista de chaves das páginas (Top 10 -> Top Anunciantes)
 pages_keys = [
     "Início", 
     "Visão Geral", 
     "Clientes & Faturamento", 
     "Perdas & Ganhos", 
     "Cruzamentos & Interseções", 
-    "Top 10", 
+    "Top Anunciantes", 
     "Relatório ABC", 
     "Eficiência"
 ]
@@ -208,7 +208,7 @@ pages = {
     "Clientes & Faturamento": clientes_faturamento,
     "Perdas & Ganhos": perdas_ganhos,
     "Cruzamentos & Interseções": cruzamentos_intersecoes,
-    "Top 10": top10,
+    "Top Anunciantes": top_anunciantes,
     "Relatório ABC": relatorio_abc,
     "Eficiência": eficiencia
 }
@@ -219,7 +219,7 @@ page_display = {
     "Clientes & Faturamento": "Clientes & Faturamento",
     "Perdas & Ganhos": "Perdas & Ganhos",
     "Cruzamentos & Interseções": "Cruzamentos & Interseções",
-    "Top 10": "Top 10",
+    "Top Anunciantes": "Top Anunciantes",
     "Relatório ABC": "Relatório ABC",
     "Eficiência": "Eficiência / KPIs"
 }
@@ -265,7 +265,7 @@ else:
 @st.dialog("Banner de Boas-vindas", width="medium")
 def modal_boas_vindas():
     st.markdown("""
-        <div class="popup-title-styled">Dashboard Vendas Ribeirão Preto</div>
+        <div class="popup-title-styled">Dashboard Vendas</div>
         <div class="popup-subtitle">Projeto Data Driven Novabrasil | Powered by Streamlit</div>
     """, unsafe_allow_html=True)
 

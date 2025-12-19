@@ -86,19 +86,19 @@ def render(df=None):
     
     # ==================== TÍTULO E INTRODUÇÃO ====================
     st.markdown("""
-    <h1 style='text-align: center; color: #003366; margin-bottom: 2rem;'>Dashboard Vendas Ribeirão Preto</h1>
+    <h1 style='text-align: center; color: #003366; margin-bottom: 2rem;'>Dashboard Vendas</h1>
     
     <h2 style='text-align: center; color: #003366; margin-top: 0px;'>Bem-vindo(a)!</h2>
     <div class='intro-text'>
         Este painel foi desenvolvido para a equipe da <b>Novabrasil</b> com o objetivo de oferecer 
-        uma visão completa sobre o desempenho comercial e de marketing da região de <b>Ribeirão Preto</b>.
+        uma visão completa sobre o desempenho comercial e de marketing.
     </div>
     <br>
     <h3 style='text-align: center; color: #444; font-size: 1rem;'>Acesse diretamente uma das seções:</h3>
     """, unsafe_allow_html=True)
 
     # ==================== BOTÕES (GRID) ====================
-    # O Último botão agora aponta para o link externo com target="_blank"
+    # O Botão "Top 10 Anunciantes" foi renomeado para "Top Anunciantes"
     st.markdown("""
     <div class="nb-container">
       <div class="nb-grid">
@@ -106,7 +106,7 @@ def render(df=None):
         <a href="?nav=2" target="_self" class="nb-card">Clientes & Faturamento</a>
         <a href="?nav=3" target="_self" class="nb-card">Perdas & Ganhos</a>
         <a href="?nav=4" target="_self" class="nb-card">Cruzamentos & Interseções</a>
-        <a href="?nav=5" target="_self" class="nb-card">Top 10 Anunciantes</a>
+        <a href="?nav=5" target="_self" class="nb-card">Top Anunciantes</a>
         <a href="?nav=6" target="_self" class="nb-card">Relatório ABC</a>
         <a href="?nav=7" target="_self" class="nb-card">Eficiência / KPIs</a>
         <a href="https://novabrasil-datadriven-crowley.streamlit.app" target="_blank" class="nb-card">Relatório Crowley</a>
